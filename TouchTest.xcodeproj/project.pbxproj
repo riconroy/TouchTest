@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		CCA4180E1975B33E004685E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA4180D1975B33E004685E6 /* AppDelegate.swift */; };
-		CCA418101975B33E004685E6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CCA4180F1975B33E004685E6 /* GameScene.sks */; };
 		CCA418121975B33E004685E6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA418111975B33E004685E6 /* GameScene.swift */; };
 		CCA418141975B33E004685E6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA418131975B33E004685E6 /* GameViewController.swift */; };
 		CCA418171975B33E004685E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA418151975B33E004685E6 /* Main.storyboard */; };
 		CCA418191975B33F004685E6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA418181975B33F004685E6 /* Images.xcassets */; };
 		CCA418251975B33F004685E6 /* TouchTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA418241975B33F004685E6 /* TouchTestTests.swift */; };
+		CCA4182F19781211004685E6 /* MySpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA4182E19781211004685E6 /* MySpot.swift */; };
+		CCA4183119782ADA004685E6 /* MyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA4183019782ADA004685E6 /* MyBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +31,6 @@
 		CCA418081975B33E004685E6 /* TouchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA4180C1975B33E004685E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCA4180D1975B33E004685E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CCA4180F1975B33E004685E6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		CCA418111975B33E004685E6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		CCA418131975B33E004685E6 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		CCA418161975B33E004685E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +38,8 @@
 		CCA4181E1975B33F004685E6 /* TouchTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA418231975B33F004685E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCA418241975B33F004685E6 /* TouchTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchTestTests.swift; sourceTree = "<group>"; };
+		CCA4182E19781211004685E6 /* MySpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySpot.swift; sourceTree = "<group>"; };
+		CCA4183019782ADA004685E6 /* MyBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				CCA4180D1975B33E004685E6 /* AppDelegate.swift */,
-				CCA4180F1975B33E004685E6 /* GameScene.sks */,
 				CCA418111975B33E004685E6 /* GameScene.swift */,
+				CCA4182E19781211004685E6 /* MySpot.swift */,
+				CCA4183019782ADA004685E6 /* MyBoard.swift */,
 				CCA418131975B33E004685E6 /* GameViewController.swift */,
 				CCA418151975B33E004685E6 /* Main.storyboard */,
 				CCA418181975B33F004685E6 /* Images.xcassets */,
@@ -196,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCA418191975B33F004685E6 /* Images.xcassets in Resources */,
-				CCA418101975B33E004685E6 /* GameScene.sks in Resources */,
 				CCA418171975B33E004685E6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +220,8 @@
 				CCA418121975B33E004685E6 /* GameScene.swift in Sources */,
 				CCA418141975B33E004685E6 /* GameViewController.swift in Sources */,
 				CCA4180E1975B33E004685E6 /* AppDelegate.swift in Sources */,
+				CCA4183119782ADA004685E6 /* MyBoard.swift in Sources */,
+				CCA4182F19781211004685E6 /* MySpot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TouchTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -345,6 +350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TouchTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
