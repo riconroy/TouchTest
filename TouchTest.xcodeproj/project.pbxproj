@@ -15,6 +15,17 @@
 		CCA418251975B33F004685E6 /* TouchTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA418241975B33F004685E6 /* TouchTestTests.swift */; };
 		CCA4182F19781211004685E6 /* MySpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA4182E19781211004685E6 /* MySpot.swift */; };
 		CCA4183119782ADA004685E6 /* MyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA4183019782ADA004685E6 /* MyBoard.swift */; };
+		CCCE57DF197EE747004A445A /* A2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57D5197EE747004A445A /* A2.m4a */; };
+		CCCE57E0197EE747004A445A /* B1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57D6197EE747004A445A /* B1.m4a */; };
+		CCCE57E1197EE747004A445A /* B2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57D7197EE747004A445A /* B2.m4a */; };
+		CCCE57E2197EE747004A445A /* C2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57D8197EE747004A445A /* C2.m4a */; };
+		CCCE57E3197EE747004A445A /* C3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57D9197EE747004A445A /* C3.m4a */; };
+		CCCE57E4197EE747004A445A /* D2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57DA197EE747004A445A /* D2.m4a */; };
+		CCCE57E5197EE747004A445A /* D3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57DB197EE747004A445A /* D3.m4a */; };
+		CCCE57E6197EE747004A445A /* E2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57DC197EE747004A445A /* E2.m4a */; };
+		CCCE57E7197EE747004A445A /* F2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57DD197EE747004A445A /* F2.m4a */; };
+		CCCE57E8197EE747004A445A /* G2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57DE197EE747004A445A /* G2.m4a */; };
+		CCCE57EA197EEA71004A445A /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCE57E9197EEA71004A445A /* redButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +51,17 @@
 		CCA418241975B33F004685E6 /* TouchTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchTestTests.swift; sourceTree = "<group>"; };
 		CCA4182E19781211004685E6 /* MySpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySpot.swift; sourceTree = "<group>"; };
 		CCA4183019782ADA004685E6 /* MyBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBoard.swift; sourceTree = "<group>"; };
+		CCCE57D5197EE747004A445A /* A2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = A2.m4a; sourceTree = "<group>"; };
+		CCCE57D6197EE747004A445A /* B1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = B1.m4a; sourceTree = "<group>"; };
+		CCCE57D7197EE747004A445A /* B2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = B2.m4a; sourceTree = "<group>"; };
+		CCCE57D8197EE747004A445A /* C2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = C2.m4a; sourceTree = "<group>"; };
+		CCCE57D9197EE747004A445A /* C3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = C3.m4a; sourceTree = "<group>"; };
+		CCCE57DA197EE747004A445A /* D2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = D2.m4a; sourceTree = "<group>"; };
+		CCCE57DB197EE747004A445A /* D3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = D3.m4a; sourceTree = "<group>"; };
+		CCCE57DC197EE747004A445A /* E2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = E2.m4a; sourceTree = "<group>"; };
+		CCCE57DD197EE747004A445A /* F2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = F2.m4a; sourceTree = "<group>"; };
+		CCCE57DE197EE747004A445A /* G2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = G2.m4a; sourceTree = "<group>"; };
+		CCCE57E9197EEA71004A445A /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +110,8 @@
 				CCA418131975B33E004685E6 /* GameViewController.swift */,
 				CCA418151975B33E004685E6 /* Main.storyboard */,
 				CCA418181975B33F004685E6 /* Images.xcassets */,
+				CCCE57E9197EEA71004A445A /* redButton.png */,
+				CCCE57D4197EE747004A445A /* tones */,
 				CCA4180B1975B33E004685E6 /* Supporting Files */,
 			);
 			path = TouchTest;
@@ -116,6 +140,23 @@
 				CCA418231975B33F004685E6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CCCE57D4197EE747004A445A /* tones */ = {
+			isa = PBXGroup;
+			children = (
+				CCCE57D5197EE747004A445A /* A2.m4a */,
+				CCCE57D6197EE747004A445A /* B1.m4a */,
+				CCCE57D7197EE747004A445A /* B2.m4a */,
+				CCCE57D8197EE747004A445A /* C2.m4a */,
+				CCCE57D9197EE747004A445A /* C3.m4a */,
+				CCCE57DA197EE747004A445A /* D2.m4a */,
+				CCCE57DB197EE747004A445A /* D3.m4a */,
+				CCCE57DC197EE747004A445A /* E2.m4a */,
+				CCCE57DD197EE747004A445A /* F2.m4a */,
+				CCCE57DE197EE747004A445A /* G2.m4a */,
+			);
+			path = tones;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,8 +239,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCCE57E1197EE747004A445A /* B2.m4a in Resources */,
+				CCCE57DF197EE747004A445A /* A2.m4a in Resources */,
+				CCCE57E5197EE747004A445A /* D3.m4a in Resources */,
+				CCCE57E8197EE747004A445A /* G2.m4a in Resources */,
+				CCCE57E3197EE747004A445A /* C3.m4a in Resources */,
+				CCCE57E0197EE747004A445A /* B1.m4a in Resources */,
+				CCCE57E6197EE747004A445A /* E2.m4a in Resources */,
+				CCCE57E4197EE747004A445A /* D2.m4a in Resources */,
 				CCA418191975B33F004685E6 /* Images.xcassets in Resources */,
 				CCA418171975B33E004685E6 /* Main.storyboard in Resources */,
+				CCCE57E7197EE747004A445A /* F2.m4a in Resources */,
+				CCCE57EA197EEA71004A445A /* redButton.png in Resources */,
+				CCCE57E2197EE747004A445A /* C2.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +461,7 @@
 				CCA4182A1975B33F004685E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CCA4182B1975B33F004685E6 /* Build configuration list for PBXNativeTarget "TouchTestTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +470,7 @@
 				CCA4182D1975B33F004685E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -18,10 +18,24 @@ class GameScene: SKScene {
 	// an initial radius for all the spots
 	let initialRadius = 4.0
 	
+	// two more constants: the timing between spots playing
+	let timeBetweenSpotPlay: NSTimeInterval = 0.5
+	let timeBetweenSequence: NSTimeInterval = 2.0
+	
+	// pre-load the sound resources
+	let B1Sound = SKAction.playSoundFileNamed("B1.m4a", waitForCompletion: false)
+	let C2Sound = SKAction.playSoundFileNamed("C2.m4a", waitForCompletion: false)
+	let D2Sound = SKAction.playSoundFileNamed("D2.m4a", waitForCompletion: false)
+	let E2Sound = SKAction.playSoundFileNamed("E2.m4a", waitForCompletion: false)
+	let F2Sound = SKAction.playSoundFileNamed("F2.m4a", waitForCompletion: false)
+	let G2Sound = SKAction.playSoundFileNamed("G2.m4a", waitForCompletion: false)
+	let A2Sound = SKAction.playSoundFileNamed("A2.m4a", waitForCompletion: false)
+	let B2Sound = SKAction.playSoundFileNamed("B2.m4a", waitForCompletion: false)
+	let C3Sound = SKAction.playSoundFileNamed("C3.m4a", waitForCompletion: false)
+	let D3Sound = SKAction.playSoundFileNamed("D3.m4a", waitForCompletion: false)
+	
 	init(size: CGSize) {
 		super.init(size: size)
-		
-		// self.myTimer = NSTimer()
 		board = MyBoard()
 	}
 	
@@ -30,7 +44,7 @@ class GameScene: SKScene {
 		self.backgroundColor = SKColor(red: 159.0/255.0, green: 159.0/255.0, blue: 1.0, alpha: 0.99)
 		
 		// start a timer that goes every few seconds.
-		startNewTimer()
+		startNewTimer(timeBetweenSequence)
 		
 		// the single layer that holds all the spots
 		self.addChild(gameLayer)
@@ -46,7 +60,13 @@ class GameScene: SKScene {
 			
 			displaySpot(newSpot)
         }
-    }
+	}
+	
+	// for completeness. Evidently needed.
+	override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+	}
+	override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+	}
 	
 	// MARK: Displaying Spots
 	
@@ -69,16 +89,17 @@ class GameScene: SKScene {
 		
 		self.addChild(myCircle)
 		
-		animateSpot(myCircle, completion: {
-			// tell the board the animation has finished
+		let toneType: ToneType = spot.toneType
+		animateSpot(myCircle, toneType: toneType, completion: {
+			// tell the board the animation has finished - NOT ACTUALLY USING THIS AT THE MOMENT
 			self.board.spotAnimationFinished(spot)
 			// remove the child from the parent (how necessary is this?)
 			myCircle.removeFromParent()
 		})
 	}
 	
-	// method to animate the spot - fade out and expand
-	func animateSpot(circle:SKShapeNode, completion: () -> ()) {
+	// method to animate the spot - expand and fade out
+	func animateSpot(circle:SKShapeNode, toneType:ToneType, completion: () -> ()) {
 		let duration: NSTimeInterval = 1.9
 		let scaleToValue = 12.0
 		let fade = SKAction.fadeOutWithDuration(duration)
@@ -97,26 +118,57 @@ class GameScene: SKScene {
 		
 		let newScale = SKAction.customActionWithDuration(duration, actionBlock: ab)
 		newScale.timingMode = .EaseOut
+		playCorrectSound(toneType)
 		circle.runAction(fade)
 		circle.runAction(newScale, completion: completion)
 	}
 	
-	func myTimerFired() {
-		if var randomSpot = board.getRandomSpot() {
-			// NSLog("it fired! it fired!")
-			self.displaySpot(randomSpot)
+	func playCorrectSound(toneType: ToneType) {
+		switch toneType.toneName {
+		case "B1":
+			runAction(B1Sound)
+		case "C2":
+			runAction(C2Sound)
+		case "D2":
+			runAction(D2Sound)
+		case "E2":
+			runAction(E2Sound)
+		case "F2":
+			runAction(F2Sound)
+		case "G2":
+			runAction(G2Sound)
+		case "A2":
+			runAction(A2Sound)
+		case "B2":
+			runAction(B2Sound)
+		case "C3":
+			runAction(C2Sound)
+		case "D3":
+			runAction(D3Sound)
+		default:
+			NSLog("There was an error translating the tone type")
 		}
-		// to get a random wait time, start a new timer
-		startNewTimer()
+	}
+	
+	// MARK: Timing Routines
+	
+	func myTimerFired() {
+		// check to see what the next spot to play is
+		if let nextSpotToPlay = board.getNextSpotToPlay() {
+			self.displaySpot(nextSpotToPlay)
+			startNewTimer(timeBetweenSpotPlay)
+		} else {
+			startNewTimer(timeBetweenSequence)
+		}
 	}
 	
 	// timer for a few seconds of wait time
 	// when timer fires, if there's a spot "ready to go", display it
-	func startNewTimer() {
+	func startNewTimer(theDelay: NSTimeInterval) {
 		//     Note "selector" is not part of the Swift language, but Obj C. But what do we replace it with?
 		let mySelector : Selector = "myTimerFired"
-		let waitTime: NSTimeInterval = NSTimeInterval(arc4random_uniform(3) + 3)
-		var timer = NSTimer.scheduledTimerWithTimeInterval(waitTime,
+		// let waitTime: NSTimeInterval = NSTimeInterval(arc4random_uniform(3) + 3)
+		var timer = NSTimer.scheduledTimerWithTimeInterval(theDelay,
 			target: self,
 			selector: mySelector,
 			userInfo: nil,

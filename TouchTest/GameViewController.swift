@@ -13,6 +13,8 @@ class GameViewController: UIViewController {
 	// scene draws draws the action; handles touch events
 	var scene: GameScene!
 	
+	@IBOutlet var clearButton: UIButton
+	
 	// the board contains all the spot elements
 	
 	// rotations and orientations
@@ -36,7 +38,11 @@ class GameViewController: UIViewController {
 		
 		// present the scene
 		skView.presentScene(scene)
-    }
+	}
+	
+	@IBAction func clearButtonPressed(AnyObject) {
+		scene.board.clearSequence()
+	}
 	
 	// MARK: Other housekeeping
 
