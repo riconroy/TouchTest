@@ -30,22 +30,15 @@ class MyBoard {
 		let spot = MySpot(xPos: x, yPos: y, radius: initialRadius, toneType: toneType)
 		array.append(spot)
 		
-		// tell the GameScene to show this spot, once
-		// NSLog("my array is now \(array.count)")
 		return spot
 	}
 	
-	// a spot has completed its animation - NOT USING THIS
+	// a spot has completed its animation - NOT being used!
 	func spotAnimationFinished(incoming:MySpot) {
 		for (index, spot) in enumerate(array) {
 			// spot is an optional type, so it needs to be unwrapped (!)
 			if spot! == incoming {
 				// NSLog("found this spot: \(spot)")
-				// ask if the spot has been used more than three times, and remove it if it has
-//				let usedTooMuch = spot?.increaseUsageStats()
-//				if usedTooMuch == true {
-//					array.removeAtIndex(index)
-//				}
 			}
 		}
 	}
@@ -74,24 +67,5 @@ class MyBoard {
 	// the user is clearing the sequence
 	func clearSequence() {
 		array = []
-	}
-	
-	// return a random spot - NOT USED
-	func getRandomSpot() -> MySpot? {
-		// build an array of valid indexes
-		var validIndexes = [NSNumber]()
-		for (index, spot) in enumerate(array) {
-			if spot!.useable == true {
-				validIndexes.append(index)
-			}
-		}
-		
-		// are there any valid spots available?
-		if validIndexes.count == 0 {
-			return nil
-		}
-		let myRandomInt: Int = Int(arc4random_uniform(UInt32(validIndexes.count)))
-		var theWantedIndex: Int = validIndexes[myRandomInt] as Int
-		return array[theWantedIndex]
 	}
 }

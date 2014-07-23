@@ -40,10 +40,10 @@ class GameScene: SKScene {
 	}
 	
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
+        // some water-like coloured background
 		self.backgroundColor = SKColor(red: 159.0/255.0, green: 159.0/255.0, blue: 1.0, alpha: 0.99)
 		
-		// start a timer that goes every few seconds.
+		// start a timer, for playing the sequence (out of the user's control)
 		startNewTimer(timeBetweenSequence)
 		
 		// the single layer that holds all the spots
@@ -51,8 +51,7 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        /* Called when a touch begins */
-        
+		// user touches somewhere - make a spot
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
 			// with this, create the model spot, then refresh the screen
@@ -72,7 +71,6 @@ class GameScene: SKScene {
 	
 	func displaySpot(spot: MySpot) {
 		// make a path and arc to create a circle
-		// let initialRadius = 4.0 // CGFloat(spot.radius)
 		let myPath: CGMutablePathRef = CGPathCreateMutable()
 		CGPathAddArc(myPath, nil, 0, 0, initialRadius, 0, M_PI * 2, true)
 		
@@ -91,8 +89,6 @@ class GameScene: SKScene {
 		
 		let toneType: ToneType = spot.toneType
 		animateSpot(myCircle, toneType: toneType, completion: {
-			// tell the board the animation has finished - NOT ACTUALLY USING THIS AT THE MOMENT
-			self.board.spotAnimationFinished(spot)
 			// remove the child from the parent (how necessary is this?)
 			myCircle.removeFromParent()
 		})
@@ -115,6 +111,7 @@ class GameScene: SKScene {
 			}
 		}
 		// see: http://stackoverflow.com/questions/24868450/expanding-circle-with-fixed-outline-width
+		//   really, this seems overly complicated; seems easier in core animation
 		
 		let newScale = SKAction.customActionWithDuration(duration, actionBlock: ab)
 		newScale.timingMode = .EaseOut
@@ -123,6 +120,7 @@ class GameScene: SKScene {
 		circle.runAction(newScale, completion: completion)
 	}
 	
+	// each spot has a sound attached to it
 	func playCorrectSound(toneType: ToneType) {
 		switch toneType.toneName {
 		case "B1":
@@ -156,7 +154,8 @@ class GameScene: SKScene {
 		// check to see what the next spot to play is
 		if let nextSpotToPlay = board.getNextSpotToPlay() {
 			self.displaySpot(nextSpotToPlay)
-			startNewTimer(timeBetweenSpotPlay)
+			let randomizedTime: NSTimeInterval = timeBetweenSpotPlay + NSTimeInterval(arc4random_uniform(10)) / 50.0
+			startNewTimer(randomizedTime)
 		} else {
 			startNewTimer(timeBetweenSequence)
 		}
@@ -167,7 +166,6 @@ class GameScene: SKScene {
 	func startNewTimer(theDelay: NSTimeInterval) {
 		//     Note "selector" is not part of the Swift language, but Obj C. But what do we replace it with?
 		let mySelector : Selector = "myTimerFired"
-		// let waitTime: NSTimeInterval = NSTimeInterval(arc4random_uniform(3) + 3)
 		var timer = NSTimer.scheduledTimerWithTimeInterval(theDelay,
 			target: self,
 			selector: mySelector,

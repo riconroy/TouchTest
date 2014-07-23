@@ -15,8 +15,6 @@ class GameViewController: UIViewController {
 	
 	@IBOutlet var clearButton: UIButton
 	
-	// the board contains all the spot elements
-	
 	// rotations and orientations
 	override func shouldAutorotate() -> Bool {
 		return true

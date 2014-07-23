@@ -15,7 +15,6 @@ class MySpot: Printable {
 	let toneType: ToneType
 	var useCounter: Int
 	var useable: Bool
-	var colour: SKColor?
 	
 	init(xPos: Int, yPos: Int, radius: Int, toneType:ToneType) {
 		self.xPos = xPos
@@ -24,20 +23,6 @@ class MySpot: Printable {
 		self.toneType = toneType
 		self.useCounter = 0
 		self.useable = false
-		self.colour = SKColor.brownColor()
-	}
-	
-	// count how many times this spot has been used, and return true if it's over three - NOT USED!
-	func increaseUsageStats() -> Bool {
-		useCounter++
-		// NSLog("usage: \(useCounter)")
-		
-		if useCounter > 3 {
-			return true
-		} else {
-			useable = true
-			return false
-		}
 	}
 	
 	var description: String {
@@ -67,6 +52,6 @@ enum ToneType: Int, Printable {
 	}
 	
 	var description: String {
-	return toneName
+		return toneName
 	}
 }
