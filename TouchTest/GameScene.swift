@@ -16,10 +16,10 @@ class GameScene: SKScene {
 	let board: MyBoard!
 	
 	// an initial radius for all the spots
-	let initialRadius = 4.0
+	let initialRadius: CGFloat = 4.0
 	
 	// two more constants: the timing between spots playing
-	let timeBetweenSpotPlay: NSTimeInterval = 0.5
+	let timeBetweenSpotPlay: NSTimeInterval = 0.3
 	let timeBetweenSequence: NSTimeInterval = 2.0
 	
 	// pre-load the sound resources
@@ -54,8 +54,13 @@ class GameScene: SKScene {
 		// user touches somewhere - make a spot
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
+			
+			// where, more or less, is this in the screen?
+			let xPercentage = Double(location.x) / Double(self.size.width)
+			let yPercentage = 1.0 - Double(location.y) / Double(self.size.height)
+			
 			// with this, create the model spot, then refresh the screen
-			let newSpot: MySpot = board.addNewSpot(Int(location.x), y: Int(location.y))
+			let newSpot: MySpot = board.addNewSpot(Int(location.x), y: Int(location.y), xPercentage: xPercentage, yPercentage: yPercentage)
 			
 			displaySpot(newSpot)
         }
@@ -72,7 +77,9 @@ class GameScene: SKScene {
 	func displaySpot(spot: MySpot) {
 		// make a path and arc to create a circle
 		let myPath: CGMutablePathRef = CGPathCreateMutable()
-		CGPathAddArc(myPath, nil, 0, 0, initialRadius, 0, M_PI * 2, true)
+		CGPathAddArc(myPath, nil, CGFloat(0), CGFloat(0), initialRadius, CGFloat(0), CGFloat(M_PI * 2), true)
+		
+		// testing
 		
 		// create the circle, and show it
 		//    (note that in iOS 8 there are way more convenient ways to do this)
@@ -97,7 +104,7 @@ class GameScene: SKScene {
 	// method to animate the spot - expand and fade out
 	func animateSpot(circle:SKShapeNode, toneType:ToneType, completion: () -> ()) {
 		let duration: NSTimeInterval = 1.9
-		let scaleToValue = 12.0
+		let scaleToValue: CGFloat = 12.0
 		let fade = SKAction.fadeOutWithDuration(duration)
 		fade.timingMode = .EaseOut
 		
@@ -106,7 +113,10 @@ class GameScene: SKScene {
 		let ab: ActionBlock = { (node, value) in
 			if let drop = node as? SKShapeNode {
 				let myPath: CGMutablePathRef = CGPathCreateMutable()
-				CGPathAddArc(myPath, nil, 0, 0, self.initialRadius * (1.0 + (value * scaleToValue / duration)), 0, M_PI * 2, true)
+				let myInitialRadius = CGFloat(self.initialRadius)
+				let floatDuration = CGFloat(duration)
+				let theRadius: CGFloat = myInitialRadius * (1.0 + (value * scaleToValue / floatDuration))
+				CGPathAddArc(myPath, nil, CGFloat(0), CGFloat(0), theRadius, CGFloat(0), CGFloat(M_PI * 2), true)
 				drop.path = myPath
 			}
 		}
@@ -140,7 +150,7 @@ class GameScene: SKScene {
 		case "B2":
 			runAction(B2Sound)
 		case "C3":
-			runAction(C2Sound)
+			runAction(C3Sound)
 		case "D3":
 			runAction(D3Sound)
 		default:

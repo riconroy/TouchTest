@@ -13,7 +13,7 @@ class GameViewController: UIViewController {
 	// scene draws draws the action; handles touch events
 	var scene: GameScene!
 	
-	@IBOutlet var clearButton: UIButton
+	@IBOutlet var clearButton: UIButton!
 	
 	// rotations and orientations
 	override func shouldAutorotate() -> Bool {

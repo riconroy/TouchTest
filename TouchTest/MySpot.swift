@@ -51,6 +51,16 @@ enum ToneType: Int, Printable {
 		return ToneType.fromRaw(Int(arc4random_uniform(10)) + 1)!
 	}
 	
+	static func partiallyRandom(xPercentage: Double, yPercentage: Double) -> ToneType {
+		// more or less, map location on screen to a tone
+		if arc4random_uniform(10) > 5 {
+			let xSlice = Int(xPercentage * 10) + 1
+			return ToneType.fromRaw(xSlice)!
+		}
+		let ySlice = Int(yPercentage * 10) + 1
+		return ToneType.fromRaw(ySlice)!
+	}
+	
 	var description: String {
 		return toneName
 	}

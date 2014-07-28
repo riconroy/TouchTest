@@ -13,7 +13,7 @@ class MyBoard {
 	var array = Array<MySpot?>()
 	
 	// we limit how many spots are in the array, however
-	let maxSpots: Int = 12
+	let maxSpots: Int = 15
 	
 	// when we play through the spots (outside of the user's control), we track which spot we are ready to play
 	var currentSpotToPlay: Int = 0
@@ -22,10 +22,11 @@ class MyBoard {
 	}
 	
 	// add spot to an array of spots; give it an initial radius
-	func addNewSpot(x: Int, y:Int) -> MySpot {
+	func addNewSpot(x: Int, y:Int, xPercentage: Double, yPercentage: Double) -> MySpot {
 		// create and place a new spot in the game board
 		let initialRadius: Int = 5
-		var toneType = ToneType.random()
+		// var toneType = ToneType.random()
+		var toneType = ToneType.partiallyRandom(xPercentage, yPercentage: yPercentage)
 		
 		let spot = MySpot(xPos: x, yPos: y, radius: initialRadius, toneType: toneType)
 		array.append(spot)

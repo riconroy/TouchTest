@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CCA418081975B33E004685E6 /* TouchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCA418081975B33E004685E6 /* waterDrops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterDrops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA4180C1975B33E004685E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCA4180D1975B33E004685E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCA418111975B33E004685E6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		CCA418091975B33E004685E6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CCA418081975B33E004685E6 /* TouchTest.app */,
+				CCA418081975B33E004685E6 /* waterDrops.app */,
 				CCA4181E1975B33F004685E6 /* TouchTestTests.xctest */,
 			);
 			name = Products;
@@ -105,9 +105,9 @@
 			children = (
 				CCA4180D1975B33E004685E6 /* AppDelegate.swift */,
 				CCA418111975B33E004685E6 /* GameScene.swift */,
+				CCA418131975B33E004685E6 /* GameViewController.swift */,
 				CCA4182E19781211004685E6 /* MySpot.swift */,
 				CCA4183019782ADA004685E6 /* MyBoard.swift */,
-				CCA418131975B33E004685E6 /* GameViewController.swift */,
 				CCA418151975B33E004685E6 /* Main.storyboard */,
 				CCA418181975B33F004685E6 /* Images.xcassets */,
 				CCCE57E9197EEA71004A445A /* redButton.png */,
@@ -176,7 +176,7 @@
 			);
 			name = TouchTest;
 			productName = TouchTest;
-			productReference = CCA418081975B33E004685E6 /* TouchTest.app */;
+			productReference = CCA418081975B33E004685E6 /* waterDrops.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CCA4181D1975B33F004685E6 /* TouchTestTests */ = {
@@ -392,7 +392,7 @@
 				INFOPLIST_FILE = TouchTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = waterDrops;
 			};
 			name = Debug;
 		};
@@ -401,10 +401,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = TouchTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = waterDrops;
 			};
 			name = Release;
 		};
