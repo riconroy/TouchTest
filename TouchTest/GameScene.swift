@@ -34,9 +34,15 @@ class GameScene: SKScene {
 	let C3Sound = SKAction.playSoundFileNamed("C3.m4a", waitForCompletion: false)
 	let D3Sound = SKAction.playSoundFileNamed("D3.m4a", waitForCompletion: false)
 	
-	init(size: CGSize) {
+	override init(size: CGSize) {
 		super.init(size: size)
 		board = MyBoard()
+	}
+	
+	// hey! This is new in beta 5. For an explanation:
+	// stackoverflow.com/questions/25126295/swift-class-does-not-implement-its-superclasss-required-members
+	required init(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
 	}
 	
     override func didMoveToView(view: SKView) {
