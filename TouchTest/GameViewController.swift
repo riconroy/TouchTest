@@ -20,7 +20,7 @@ class GameViewController: UIViewController {
 		return true
 	}
 	override func supportedInterfaceOrientations() -> Int {
-		return Int(UIInterfaceOrientationMask.AllButUpsideDown.toRaw())
+		return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
 	}
 
     override func viewDidLoad() {

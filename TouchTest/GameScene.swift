@@ -34,6 +34,8 @@ class GameScene: SKScene {
 	let C3Sound = SKAction.playSoundFileNamed("C3.m4a", waitForCompletion: false)
 	let D3Sound = SKAction.playSoundFileNamed("D3.m4a", waitForCompletion: false)
 	
+	// MARK: - Initialize
+	
 	override init(size: CGSize) {
 		super.init(size: size)
 		board = MyBoard()
@@ -41,7 +43,7 @@ class GameScene: SKScene {
 	
 	// hey! This is new in beta 5. For an explanation:
 	// stackoverflow.com/questions/25126295/swift-class-does-not-implement-its-superclasss-required-members
-	required init(coder aDecoder: NSCoder) {
+	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
 	
@@ -54,8 +56,10 @@ class GameScene: SKScene {
 		
 		// the single layer that holds all the spots
 		self.addChild(gameLayer)
-    }
-    
+	}
+	
+	// MARK: - User Touches
+	
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		// user touches somewhere - make a spot
         for touch: AnyObject in touches {
@@ -73,19 +77,17 @@ class GameScene: SKScene {
 	}
 	
 	// for completeness. Evidently needed.
-	override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+	override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
 	}
 	override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
 	}
 	
-	// MARK: Displaying Spots
+	// MARK: - Displaying Spots
 	
 	func displaySpot(spot: MySpot) {
 		// make a path and arc to create a circle
 		let myPath: CGMutablePathRef = CGPathCreateMutable()
 		CGPathAddArc(myPath, nil, CGFloat(0), CGFloat(0), initialRadius, CGFloat(0), CGFloat(M_PI * 2), true)
-		
-		// testing
 		
 		// create the circle, and show it
 		//    (note that in iOS 8 there are way more convenient ways to do this)
@@ -138,7 +140,7 @@ class GameScene: SKScene {
 	
 	// each spot has a sound attached to it
 	func playCorrectSound(toneType: ToneType) {
-		switch toneType.toneName {
+		switch toneType.description {
 		case "B1":
 			runAction(B1Sound)
 		case "C2":
@@ -164,7 +166,7 @@ class GameScene: SKScene {
 		}
 	}
 	
-	// MARK: Timing Routines
+	// MARK: - Timing Routines
 	
 	func myTimerFired() {
 		// check to see what the next spot to play is

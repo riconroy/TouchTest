@@ -35,33 +35,39 @@ func == (lhs: MySpot, rhs: MySpot) -> Bool {
 	return (lhs.xPos == rhs.xPos) && (lhs.yPos == rhs.yPos)
 }
 
-enum ToneType: Int, Printable {
+enum ToneType: Int {
 	case Unknown = 0, B1, C2, D2, E2, F2, G2, A2, B2, C3, D3
-	
-	// returns file names for corresponding sprite images
-	var toneName: String {
-	let toneNames = ["B1", "C2", "D2", "E2", "F2", "G2", "A2", "B2", "C3", "D3"]
-		// toRaw() converts the enum’s current value to an integer
-		return toneNames[toRaw() - 1]
+}
+
+extension ToneType: Printable {
+	var description: String {
+		let toneNames = ["B1", "C2", "D2", "E2", "F2", "G2", "A2", "B2", "C3", "D3"]
+		return toneNames[self.rawValue]
+	}
+}
+
+extension ToneType {
+	static var caseCount: Int {
+		var max: Int = 0
+		while let _ = self(rawValue: ++max) {}
+		return max
 	}
 	
 	static func random() -> ToneType {
 		// arc4random_uniform() returns a "UInt32", convert to Int (Swift is strict!)
 		// "fromRaw" converts from Int to proper "ToneType" value
-		return ToneType.fromRaw(Int(arc4random_uniform(10)) + 1)!
+		let theRand = Int(arc4random_uniform(UInt32(caseCount)))
+		return ToneType(rawValue: theRand)!
 	}
 	
 	static func partiallyRandom(xPercentage: Double, yPercentage: Double) -> ToneType {
 		// more or less, map location on screen to a tone
-		if arc4random_uniform(10) > 5 {
-			let xSlice = Int(xPercentage * 10) + 1
-			return ToneType.fromRaw(xSlice)!
+		let theRand = Int(arc4random_uniform(UInt32(caseCount)))
+		if theRand % 2 > 0 {
+			let xSlice = Int(xPercentage * Double(caseCount - 1))
+			return ToneType(rawValue: xSlice)!
 		}
-		let ySlice = Int(yPercentage * 10) + 1
-		return ToneType.fromRaw(ySlice)!
-	}
-	
-	var description: String {
-		return toneName
+		let ySlice = Int(yPercentage * Double(caseCount - 1))
+		return ToneType(rawValue: ySlice)!
 	}
 }
